@@ -66,14 +66,14 @@
         /* --- Elite Header & Logo --- */
         .header-section {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .logo-wrapper {
             position: relative;
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 15px auto;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px auto;
             border-radius: 50%;
             padding: 4px;
             background: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-dark));
@@ -83,7 +83,7 @@
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
+            50% { transform: translateY(-8px); }
         }
 
         .restaurant-logo {
@@ -97,21 +97,21 @@
 
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: 34px;
+            font-size: 36px;
             font-weight: 800;
             background: linear-gradient(to right, #FFF, var(--gold-primary), #FFF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
             letter-spacing: 1px;
             text-shadow: 0px 4px 20px rgba(248, 181, 0, 0.2);
         }
 
         .tagline {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 400;
             color: var(--gold-light);
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
         }
 
@@ -119,10 +119,10 @@
         .slider-wrapper {
             position: relative;
             width: 100%;
-            height: 300px;
+            height: 320px;
             border-radius: 24px;
             overflow: hidden;
-            margin-bottom: 20px;
+            margin-bottom: 35px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.9);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -139,8 +139,8 @@
             position: absolute;
             inset: 0;
             opacity: 0;
-            transform: scale(1.05);
-            transition: opacity 1.5s ease, transform 10s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: scale(1.1);
+            transition: opacity 1.5s ease, transform 6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .slide.active {
@@ -152,96 +152,40 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: contrast(1.1) saturate(1.1);
+            filter: contrast(1.1) saturate(1.2);
         }
 
         .slide-content {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
+            bottom: 25px;
+            left: 25px;
             z-index: 3;
             text-align: left;
         }
 
         .slide-title {
             font-family: 'Cinzel', serif;
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
             text-shadow: 0 4px 10px rgba(0,0,0,0.8);
         }
         
         .slide-subtitle {
-            font-size: 11px;
+            font-size: 12px;
             color: var(--gold-primary);
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 500;
         }
 
-        /* --- Next-Gen Smart Buttons (Contact Grid Moved Up) --- */
-        .action-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .action-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 16px 10px;
-            border-radius: 18px;
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 500;
-            font-size: 13px;
-            background: rgba(20, 20, 20, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 0.5px;
-        }
-
-        .action-btn:active { transform: scale(0.96); }
-        
-        .action-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.06), transparent 70%);
-            opacity: 0; transition: opacity 0.3s ease;
-        }
-        .action-btn:hover::before { opacity: 1; }
-
-        /* Glowing Elegant Theme per App */
-        .btn-call { border-top: 1px solid rgba(77, 163, 255, 0.3); background: linear-gradient(180deg, rgba(77, 163, 255, 0.05) 0%, rgba(20, 20, 20, 0.5) 100%); }
-        .btn-call i { color: #4DA3FF; font-size: 22px; filter: drop-shadow(0 0 6px rgba(77, 163, 255, 0.4)); }
-
-        .btn-wa { border-top: 1px solid rgba(37, 211, 102, 0.3); background: linear-gradient(180deg, rgba(37, 211, 102, 0.05) 0%, rgba(20, 20, 20, 0.5) 100%); }
-        .btn-wa i { color: #25D366; font-size: 24px; filter: drop-shadow(0 0 6px rgba(37, 211, 102, 0.4)); }
-
-        .btn-map { border-top: 1px solid rgba(255, 107, 94, 0.3); background: linear-gradient(180deg, rgba(255, 107, 94, 0.05) 0%, rgba(20, 20, 20, 0.5) 100%); }
-        .btn-map i { color: #FF6B5E; font-size: 22px; filter: drop-shadow(0 0 6px rgba(255, 107, 94, 0.4)); }
-
-        .btn-insta { border-top: 1px solid rgba(225, 48, 108, 0.3); background: linear-gradient(180deg, rgba(225, 48, 108, 0.05) 0%, rgba(20, 20, 20, 0.5) 100%); }
-        .btn-insta i { color: #E1306C; font-size: 24px; filter: drop-shadow(0 0 6px rgba(225, 48, 108, 0.4)); }
-
         /* --- Premium Specialities Grid --- */
         .section-title {
             font-family: 'Cinzel', serif;
-            font-size: 18px;
+            font-size: 20px;
             color: var(--text-main);
             text-align: center;
-            margin-top: 35px;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
@@ -260,9 +204,10 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
         }
 
+        /* Full width for the 5th item */
         .specialities-grid .spec-card:nth-child(5) {
             grid-column: span 2;
         }
@@ -273,7 +218,7 @@
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
             border-radius: 16px;
-            padding: 14px 12px;
+            padding: 16px 12px;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -287,30 +232,86 @@
         }
 
         .spec-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
             background: rgba(248, 181, 0, 0.15);
             color: var(--gold-primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .spec-text {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 500;
             color: var(--text-main);
             text-align: left;
             line-height: 1.2;
         }
 
-        /* --- AI Magic Review Button --- */
+        /* --- UPGRADED: Next-Gen Smart Buttons (Contact Grid) --- */
+        .action-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 25px;
+        }
+
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px 10px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 13px;
+            background: rgba(20, 20, 20, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .action-btn:active { transform: scale(0.96); }
+        
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.08), transparent 70%);
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .action-btn:hover::before { opacity: 1; }
+
+        /* Glowing Elegant Theme per App */
+        .btn-call { border-top: 1px solid rgba(77, 163, 255, 0.4); background: linear-gradient(180deg, rgba(77, 163, 255, 0.08) 0%, rgba(20, 20, 20, 0.4) 100%); }
+        .btn-call i { color: #4DA3FF; font-size: 24px; filter: drop-shadow(0 0 8px rgba(77, 163, 255, 0.5)); }
+
+        .btn-wa { border-top: 1px solid rgba(37, 211, 102, 0.4); background: linear-gradient(180deg, rgba(37, 211, 102, 0.08) 0%, rgba(20, 20, 20, 0.4) 100%); }
+        .btn-wa i { color: #25D366; font-size: 26px; filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.5)); }
+
+        .btn-map { border-top: 1px solid rgba(255, 107, 94, 0.4); background: linear-gradient(180deg, rgba(255, 107, 94, 0.08) 0%, rgba(20, 20, 20, 0.4) 100%); }
+        .btn-map i { color: #FF6B5E; font-size: 24px; filter: drop-shadow(0 0 8px rgba(255, 107, 94, 0.5)); }
+
+        .btn-insta { border-top: 1px solid rgba(225, 48, 108, 0.4); background: linear-gradient(180deg, rgba(225, 48, 108, 0.08) 0%, rgba(20, 20, 20, 0.4) 100%); }
+        .btn-insta i { color: #E1306C; font-size: 26px; filter: drop-shadow(0 0 8px rgba(225, 48, 108, 0.5)); }
+
+        /* --- UPGRADED: AI Magic Review Button --- */
         .magic-btn-wrapper {
             position: relative;
             width: 100%;
-            margin-bottom: 40px;
+            margin-top: 15px;
+            margin-bottom: 45px;
         }
 
         .btn-review {
@@ -319,15 +320,15 @@
             color: #111;
             font-size: 16px;
             font-weight: 700;
-            padding: 20px;
-            border-radius: 18px;
+            padding: 22px;
+            border-radius: 20px;
             border: none;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            box-shadow: 0 10px 30px rgba(248, 181, 0, 0.3), inset 0 2px 0 rgba(255,255,255,0.4);
+            gap: 12px;
+            box-shadow: 0 12px 35px rgba(248, 181, 0, 0.35), inset 0 2px 0 rgba(255,255,255,0.4);
             position: relative;
             overflow: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -337,12 +338,13 @@
 
         .btn-review:active { transform: scale(0.97); box-shadow: 0 5px 15px rgba(248, 181, 0, 0.2); }
 
-        .btn-review i { font-size: 20px; animation: starSpin 4s linear infinite; }
+        .btn-review i { font-size: 22px; animation: starSpin 4s linear infinite; }
 
         @keyframes starSpin {
             100% { transform: rotate(360deg); }
         }
 
+        /* Light Sweep Effect */
         .btn-review::after {
             content: '';
             position: absolute;
@@ -359,29 +361,29 @@
             100% { left: 200%; }
         }
 
-        /* --- Premium Footer --- */
+        /* --- UPGRADED: Premium Footer --- */
         .footer {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 35px;
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
         .copyright {
-            font-size: 11px;
+            font-size: 12px;
             color: rgba(255,255,255,0.4);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             letter-spacing: 1px;
         }
 
         .dev-badge {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 16px;
             background: linear-gradient(145deg, rgba(30, 30, 30, 0.6), rgba(10, 10, 10, 0.9));
             border: 1px solid rgba(248, 181, 0, 0.2);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
-            padding: 14px;
-            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+            padding: 16px;
+            border-radius: 20px;
             text-decoration: none;
             transition: all 0.3s ease;
             position: relative;
@@ -398,20 +400,20 @@
         }
 
         .dev-badge:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             border-color: rgba(248, 181, 0, 0.4);
-            box-shadow: 0 12px 30px rgba(248, 181, 0, 0.25);
+            box-shadow: 0 15px 40px rgba(248, 181, 0, 0.25);
         }
 
         .dev-logo {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
             object-fit: cover;
             border: 2px solid rgba(248, 181, 0, 0.5);
             padding: 2px;
             background: var(--bg-base);
-            box-shadow: 0 0 12px rgba(248, 181, 0, 0.2);
+            box-shadow: 0 0 15px rgba(248, 181, 0, 0.2);
         }
 
         .dev-info {
@@ -422,14 +424,14 @@
             font-size: 9px;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 1.2px;
-            margin-bottom: 3px;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
             display: block;
         }
 
         .dev-info .name {
             color: var(--text-main);
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
             display: block;
             letter-spacing: 0.5px;
@@ -437,9 +439,9 @@
 
         .dev-info .company {
             color: var(--gold-primary);
-            font-size: 10px;
+            font-size: 11px;
             display: block;
-            margin-top: 2px;
+            margin-top: 3px;
             font-weight: 500;
         }
     </style>
@@ -458,45 +460,27 @@
         <div class="tagline">The Royal Culinary Experience</div>
     </div>
 
-    <!-- Cinematic Image Slider (5 Images changing every 10 secs) -->
+    <!-- Cinematic Image Slider (Highly Accurate 4K Images) -->
     <div class="slider-wrapper" id="slider">
-        <!-- Slide 1: Premium Platter Mandi (Matches your requested style) -->
+        <!-- Slide 1: Premium Authentic Mandi -->
         <div class="slide active">
-            <img src="https://images.unsplash.com/photo-1626200926732-261625297127?q=80&w=800&auto=format&fit=crop" alt="Signature Platter Mandi">
+            <img src="https://stewwithsaba.com/wp-content/uploads/2023/08/IMG_0744.jpg" alt="Signature Mandi">
             <div class="slide-content">
-                <div class="slide-subtitle">Signature Thaal</div>
-                <div class="slide-title">Tandoori Mandi</div>
+                <div class="slide-subtitle">Signature Dish</div>
+                <div class="slide-title">Royal Mandi</div>
             </div>
         </div>
         
-        <!-- Slide 2: Royal Mutton Mandi -->
-        <div class="slide">
-            <img src="https://stewwithsaba.com/wp-content/uploads/2023/08/IMG_0744.jpg" alt="Mutton Mandi">
-            <div class="slide-content">
-                <div class="slide-subtitle">Chef's Special</div>
-                <div class="slide-title">Royal Mutton Mandi</div>
-            </div>
-        </div>
-
-        <!-- Slide 3: Traditional Top-Down Mandi (Matches your requested style) -->
-        <div class="slide">
-            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=800&auto=format&fit=crop" alt="Authentic Mandi Platter">
-            <div class="slide-content">
-                <div class="slide-subtitle">Authentic Taste</div>
-                <div class="slide-title">Juicy Chicken Mandi</div>
-            </div>
-        </div>
-        
-        <!-- Slide 4: Authentic Hyderabadi Biryani -->
+        <!-- Slide 2: Authentic Hyderabadi/Mughlai Biryani -->
         <div class="slide">
             <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=800&q=80" alt="Premium Biryani">
             <div class="slide-content">
-                <div class="slide-subtitle">Crowd Favorite</div>
+                <div class="slide-subtitle">Chef's Special</div>
                 <div class="slide-title">Classic Biryani</div>
             </div>
         </div>
         
-        <!-- Slide 5: High-Quality Shawarma -->
+        <!-- Slide 3: High-Quality Shawarma -->
         <div class="slide">
             <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&w=800&q=80" alt="Authentic Shawarma">
             <div class="slide-content">
@@ -504,34 +488,6 @@
                 <div class="slide-title">Grilled Shawarma</div>
             </div>
         </div>
-    </div>
-
-    <!-- Contact Details Moved DIRECTLY Beneath the Picture -->
-    <div class="action-grid">
-        <a href="tel:+919885984585" class="action-btn btn-call">
-            <i class="fa-solid fa-phone"></i>
-            <span>Call Desk 1</span>
-        </a>
-        <a href="tel:+917285984585" class="action-btn btn-call">
-            <i class="fa-solid fa-phone"></i>
-            <span>Call Desk 2</span>
-        </a>
-        <a href="https://wa.me/919885984585" target="_blank" class="action-btn btn-wa">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>WhatsApp Us</span>
-        </a>
-        <a href="https://www.google.com/maps?cid=18279089975695110433" target="_blank" class="action-btn btn-map">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Navigate Map</span>
-        </a>
-    </div>
-    
-    <!-- Full Width Insta Contact -->
-    <div class="action-grid" style="grid-template-columns: 1fr;">
-        <a href="https://www.instagram.com/tajdarbar_khammam?utm_source=qr&stkn=dWFqOTI0ZGpqaWU1" target="_blank" class="action-btn btn-insta" style="flex-direction: row; gap: 15px; padding: 16px;">
-            <i class="fa-brands fa-instagram"></i>
-            <span>Follow our Instagram</span>
-        </a>
     </div>
 
     <!-- High-End Specialities Menu -->
@@ -557,6 +513,34 @@
             <div class="spec-icon"><i class="fa-solid fa-ice-cream"></i></div>
             <div class="spec-text">Double Ka Meetha</div>
         </div>
+    </div>
+
+    <!-- Smart Action Grid -->
+    <div class="action-grid">
+        <a href="tel:+919885984585" class="action-btn btn-call">
+            <i class="fa-solid fa-phone"></i>
+            <span>Call Desk 1</span>
+        </a>
+        <a href="tel:+917285984585" class="action-btn btn-call">
+            <i class="fa-solid fa-phone"></i>
+            <span>Call Desk 2</span>
+        </a>
+        <a href="https://wa.me/919885984585" target="_blank" class="action-btn btn-wa">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp Us</span>
+        </a>
+        <a href="https://www.google.com/maps?cid=18279089975695110433" target="_blank" class="action-btn btn-map">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Navigate Map</span>
+        </a>
+    </div>
+    
+    <!-- Full Width Insta -->
+    <div class="action-grid" style="grid-template-columns: 1fr; margin-top: -10px;">
+        <a href="https://www.instagram.com/tajdarbar_khammam?utm_source=qr&stkn=dWFqOTI0ZGpqaWU1" target="_blank" class="action-btn btn-insta" style="flex-direction: row; gap: 18px; padding: 18px;">
+            <i class="fa-brands fa-instagram"></i>
+            <span>Follow our Instagram</span>
+        </a>
     </div>
 
     <!-- AI Magic Review Generator -->
@@ -595,8 +579,8 @@
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('active');
     }
-    // Updated to transition exactly every 10 seconds (10000ms)
-    setInterval(nextSlide, 10000);
+    // 4.5 seconds for optimal reading time and visual impact
+    setInterval(nextSlide, 4500);
 
     // --- 2. Advanced 100+ Magic Review Generator ---
     const adjectives = [
