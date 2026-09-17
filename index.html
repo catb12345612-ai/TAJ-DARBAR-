@@ -2,23 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Taj Darbar Restaurant | Smart Hub</title>
     
-    <!-- FontAwesome & Premium Google Fonts (Playfair Display for luxury, Inter for clean tech) -->
+    <!-- FontAwesome & Luxury Fonts (Cinzel for Royal feel, Poppins for Tech clean look) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --gold-light: #F9E596;
-            --gold-primary: #D4AF37;
-            --gold-dark: #997A15;
-            --bg-base: #050505;
-            --surface: rgba(25, 25, 25, 0.6);
-            --surface-border: rgba(212, 175, 55, 0.15);
-            --text-main: #F2F2F2;
-            --text-muted: #888888;
+            --gold-light: #FCEABB;
+            --gold-primary: #F8B500;
+            --gold-dark: #B38100;
+            --bg-base: #0a0a0a;
+            --glass-bg: rgba(20, 20, 20, 0.7);
+            --glass-border: rgba(248, 181, 0, 0.2);
+            --text-main: #ffffff;
+            --text-muted: #a3a3a3;
         }
 
         * {
@@ -29,95 +29,118 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: var(--bg-base);
             color: var(--text-main);
-            text-align: center;
-            padding-bottom: 50px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
             overflow-x: hidden;
-            /* Ambient background glow */
-            background-image: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+            position: relative;
+        }
+
+        /* Ambient Animated Background Glow */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%; left: -20%; width: 140%; height: 140%;
+            background: radial-gradient(circle at 50% 50%, rgba(248, 181, 0, 0.05) 0%, transparent 60%),
+                        radial-gradient(circle at 80% 20%, rgba(248, 181, 0, 0.03) 0%, transparent 40%);
+            z-index: -1;
+            animation: pulseGlow 10s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; }
         }
 
         .container {
+            width: 100%;
             max-width: 480px;
-            margin: 0 auto;
-            padding: 30px 20px;
+            padding: 30px 20px 50px 20px;
             position: relative;
             z-index: 1;
         }
 
         /* --- Elite Header & Logo --- */
-        .logo-container {
-            margin: 10px 0 25px 0;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .restaurant-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid rgba(212, 175, 55, 0.5);
-            padding: 4px;
-            background: var(--bg-base);
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
-            transition: transform 0.5s ease;
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        .restaurant-logo:hover {
-            transform: scale(1.05);
+        .logo-wrapper {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-dark));
+            box-shadow: 0 0 30px rgba(248, 181, 0, 0.3);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .restaurant-logo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--bg-base);
+            background: var(--bg-base);
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 34px;
-            margin-bottom: 8px;
-            background: linear-gradient(to right, var(--gold-light), var(--gold-primary), var(--gold-dark));
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(to right, #FFF, var(--gold-primary), #FFF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-shadow: 0px 4px 20px rgba(248, 181, 0, 0.2);
         }
 
         .tagline {
-            font-size: 14px;
-            font-weight: 300;
-            color: var(--text-muted);
-            margin-bottom: 35px;
-            letter-spacing: 1px;
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--gold-light);
+            letter-spacing: 2.5px;
             text-transform: uppercase;
         }
 
-        /* --- Premium Cinematic Slider --- */
-        .slider-container {
+        /* --- Cinematic Image Slider --- */
+        .slider-wrapper {
             position: relative;
             width: 100%;
-            height: 280px;
-            border-radius: 20px;
+            height: 320px;
+            border-radius: 24px;
             overflow: hidden;
             margin-bottom: 35px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-            border: 1px solid var(--surface-border);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.9);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Vignette overlay for cinematic look */
-        .slider-container::after {
+        .slider-wrapper::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+            bottom: 0; left: 0; right: 0; height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
             z-index: 2;
-            pointer-events: none;
         }
 
         .slide {
             position: absolute;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             opacity: 0;
-            transform: scale(1.05);
-            transition: opacity 1.2s ease-in-out, transform 4s linear;
+            transform: scale(1.1);
+            transition: opacity 1.5s ease, transform 6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .slide.active {
@@ -129,193 +152,255 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            filter: contrast(1.1) saturate(1.2);
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            z-index: 3;
+            text-align: left;
         }
 
         .slide-title {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            z-index: 3;
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
+            font-family: 'Cinzel', serif;
+            font-size: 26px;
+            font-weight: 700;
             color: #fff;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-            letter-spacing: 1px;
+            margin-bottom: 4px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
         }
-
-        /* --- Glassmorphism Specialities --- */
-        .specialities {
-            background: var(--surface);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 25px 20px;
-            margin-bottom: 35px;
-            border: 1px solid var(--surface-border);
-        }
-
-        .specialities h3 {
-            margin-bottom: 20px;
-            font-size: 15px;
-            font-weight: 500;
+        
+        .slide-subtitle {
+            font-size: 12px;
             color: var(--gold-primary);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
+            font-weight: 500;
         }
 
-        .badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-        }
-
-        .badge {
-            background: rgba(255, 255, 255, 0.03);
+        /* --- Premium Specialities Grid --- */
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
             color: var(--text-main);
-            padding: 10px 18px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 400;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .section-title::before, .section-title::after {
+            content: '';
+            height: 1px;
+            width: 40px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        }
+
+        .specialities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        /* Full width for the 5th item */
+        .specialities-grid .spec-card:nth-child(5) {
+            grid-column: span 2;
+        }
+
+        .spec-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 16px 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             transition: all 0.3s ease;
         }
 
-        .badge:hover {
+        .spec-card:hover {
             border-color: var(--gold-primary);
-            color: var(--gold-light);
-            background: rgba(212, 175, 55, 0.05);
+            background: rgba(248, 181, 0, 0.08);
+            transform: translateY(-2px);
         }
 
-        /* --- Next-Gen Button Grid --- */
-        .btn-grid {
+        .spec-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(248, 181, 0, 0.15);
+            color: var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .spec-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-main);
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        /* --- Next-Gen Smart Buttons --- */
+        .action-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 35px;
+            gap: 14px;
+            margin-bottom: 30px;
         }
 
-        .btn {
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 18px 10px;
+            border-radius: 18px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 14px;
+            background: var(--glass-bg);
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .action-btn:active { transform: scale(0.95); }
+        
+        .action-btn i { font-size: 22px; }
+
+        .btn-call { color: #4DA3FF; border-bottom: 2px solid rgba(77, 163, 255, 0.3); }
+        .btn-wa { color: #25D366; border-bottom: 2px solid rgba(37, 211, 102, 0.3); }
+        .btn-map { color: #FF6B5E; border-bottom: 2px solid rgba(255, 107, 94, 0.3); }
+        .btn-insta { color: #E1306C; border-bottom: 2px solid rgba(225, 48, 108, 0.3); }
+
+        /* AI Magic Review Button */
+        .magic-btn-wrapper {
+            position: relative;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .btn-review {
+            width: 100%;
+            background: linear-gradient(135deg, var(--gold-primary), #D4AF37, var(--gold-dark));
+            color: #000;
+            font-size: 17px;
+            font-weight: 700;
+            padding: 22px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            padding: 16px;
-            border-radius: 14px;
-            text-decoration: none;
-            color: #fff;
-            font-weight: 500;
-            font-size: 15px;
-            border: 1px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(5px);
-        }
-
-        .btn:active {
-            transform: scale(0.96);
-        }
-
-        .btn i {
-            font-size: 18px;
-        }
-
-        /* Elegant solid styling for utility buttons */
-        .btn-call-1 { background: rgba(0, 122, 255, 0.15); color: #4DA3FF; border-color: rgba(0, 122, 255, 0.3); }
-        .btn-call-2 { background: rgba(0, 122, 255, 0.15); color: #4DA3FF; border-color: rgba(0, 122, 255, 0.3); }
-        .btn-wa { background: rgba(37, 211, 102, 0.15); color: #25D366; border-color: rgba(37, 211, 102, 0.3); }
-        .btn-map { background: rgba(234, 67, 53, 0.15); color: #FF6B5E; border-color: rgba(234, 67, 53, 0.3); }
-        
-        .btn-insta { 
-            background: linear-gradient(45deg, rgba(240, 148, 51, 0.15), rgba(220, 39, 67, 0.15), rgba(188, 24, 136, 0.15));
-            border-color: rgba(220, 39, 67, 0.3);
-            color: #E1306C;
-            grid-column: span 2;
-        }
-
-        /* AI-Grade Magic Review Button */
-        .btn-review {
-            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
-            color: #000;
-            grid-column: span 2;
-            font-size: 16px;
-            font-weight: 600;
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+            box-shadow: 0 10px 30px rgba(248, 181, 0, 0.3);
             position: relative;
             overflow: hidden;
-            border: none;
+            transition: all 0.3s ease;
         }
 
-        .btn-review::before {
+        .btn-review:active { transform: scale(0.98); box-shadow: 0 5px 15px rgba(248, 181, 0, 0.2); }
+
+        .btn-review i { font-size: 20px; animation: starSpin 4s linear infinite; }
+
+        @keyframes starSpin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Light Sweep Effect */
+        .btn-review::after {
             content: '';
             position: absolute;
             top: 0; left: -100%;
             width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.6), transparent);
             transform: skewX(-25deg);
-            animation: shine 3s infinite;
+            animation: sweep 3s infinite;
         }
 
-        @keyframes shine {
+        @keyframes sweep {
             0% { left: -100%; }
             20% { left: 200%; }
             100% { left: 200%; }
         }
 
-        /* --- Minimalist Developer Footer --- */
+        /* --- Developer Footer --- */
         .footer {
-            margin-top: 20px;
+            text-align: center;
             padding-top: 30px;
-            font-size: 12px;
-            color: var(--text-muted);
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        .dev-info {
+        .copyright {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .dev-badge {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 15px;
-            margin-top: 20px;
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 16px;
+            border-radius: 16px;
             text-decoration: none;
-            background: transparent;
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
             transition: all 0.3s ease;
         }
         
-        .dev-info:hover {
-            background: rgba(255,255,255,0.02);
-            border-color: rgba(255,255,255,0.1);
+        .dev-badge:hover {
+            background: rgba(255,255,255,0.03);
+            border-color: var(--gold-primary);
         }
 
         .dev-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
             object-fit: cover;
-            filter: grayscale(20%);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .dev-text {
+        .dev-info {
             text-align: left;
         }
 
-        .dev-text strong {
-            color: var(--text-main);
-            display: block;
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 2px;
-        }
-        
-        .dev-text span {
+        .dev-info .role {
+            font-size: 10px;
             color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+            display: block;
+        }
+
+        .dev-info .name {
+            color: var(--text-main);
+            font-size: 14px;
+            font-weight: 600;
+            display: block;
+        }
+
+        .dev-info .company {
+            color: var(--gold-light);
             font-size: 11px;
             display: block;
+            margin-top: 2px;
         }
     </style>
 </head>
@@ -324,85 +409,124 @@
 <div class="container">
     
     <!-- Header -->
-    <div class="logo-container">
-        <!-- REPLACE SRC WITH ACTUAL LOGO URL -->
-        <img src="taj.dar.jpeg" alt="Taj Darbar Logo" class="restaurant-logo">
+    <div class="header-section">
+        <div class="logo-wrapper">
+            <!-- REPLACE SRC WITH ACTUAL LOGO URL -->
+            <img src="taj.dar.jpeg" alt="Taj Darbar Logo" class="restaurant-logo" onerror="this.src='https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=300&q=80'">
+        </div>
+        <h1>Taj Darbar</h1>
+        <div class="tagline">The Royal Culinary Experience</div>
     </div>
-    <h1>Taj Darbar</h1>
-    <p class="tagline">Authentic Flavors &bull; Royal Experience</p>
 
-    <!-- Image Slider (Exactly 3 High-End Images: Mandi, Biryani, Shawarma) -->
-    <div class="slider-container" id="slider">
-        <!-- Slide 1: Premium Mandi (Meat & Rice) -->
+    <!-- Cinematic Image Slider (Highly Accurate 4K Images) -->
+    <div class="slider-wrapper" id="slider">
+        <!-- Slide 1: Premium Authentic Mandi -->
         <div class="slide active">
-            <img src="https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=1000&q=80" alt="Special Mandi">
-            <div class="slide-title">Signature Mandi</div>
+            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1000&auto=format&fit=crop" alt="Signature Mandi">
+            <div class="slide-content">
+                <div class="slide-subtitle">Signature Dish</div>
+                <div class="slide-title">Royal Mandi</div>
+            </div>
         </div>
-        <!-- Slide 2: Premium Authentic Biryani -->
+        <!-- Slide 2: Authentic Hyderabadi/Mughlai Biryani -->
         <div class="slide">
-            <img src="https://images.unsplash.com/photo-1589302168068-964664d93cb0?auto=format&fit=crop&w=1000&q=80" alt="Royal Biryani">
-            <div class="slide-title">Royal Biryani</div>
+            <img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=1000&auto=format&fit=crop" alt="Premium Biryani">
+            <div class="slide-content">
+                <div class="slide-subtitle">Chef's Special</div>
+                <div class="slide-title">Classic Biryani</div>
+            </div>
         </div>
-        <!-- Slide 3: Premium Shawarma -->
+        <!-- Slide 3: High-Quality Shawarma -->
         <div class="slide">
-            <img src="https://images.unsplash.com/photo-1645696301019-35adcc18fc21?auto=format&fit=crop&w=1000&q=80" alt="Grilled Shawarma">
-            <div class="slide-title">Classic Shawarma</div>
+            <img src="https://images.unsplash.com/photo-1655075672288-757960fc031e?q=80&w=1000&auto=format&fit=crop" alt="Authentic Shawarma">
+            <div class="slide-content">
+                <div class="slide-subtitle">Street Authentic</div>
+                <div class="slide-title">Grilled Shawarma</div>
+            </div>
         </div>
     </div>
 
-    <!-- Our Specialities -->
-    <div class="specialities">
-        <h3>Our Specialities</h3>
-        <div class="badges">
-            <span class="badge">Tandoor Mandi</span>
-            <span class="badge">Juicy Mandi</span>
-            <span class="badge">Special Biryani</span>
-            <span class="badge">Kaddu Ki Kheer</span>
-            <span class="badge">Double Ka Meetha</span>
+    <!-- High-End Specialities Menu -->
+    <div class="section-title">Exclusive Menu</div>
+    <div class="specialities-grid">
+        <div class="spec-card">
+            <div class="spec-icon"><i class="fa-solid fa-fire-burner"></i></div>
+            <div class="spec-text">Tandoor<br>Mandi</div>
+        </div>
+        <div class="spec-card">
+            <div class="spec-icon"><i class="fa-solid fa-droplet"></i></div>
+            <div class="spec-text">Juicy<br>Mandi</div>
+        </div>
+        <div class="spec-card">
+            <div class="spec-icon"><i class="fa-solid fa-bowl-rice"></i></div>
+            <div class="spec-text">Special<br>Biryani</div>
+        </div>
+        <div class="spec-card">
+            <div class="spec-icon"><i class="fa-solid fa-spoon"></i></div>
+            <div class="spec-text">Kaddu Ki<br>Kheer</div>
+        </div>
+        <div class="spec-card">
+            <div class="spec-icon"><i class="fa-solid fa-ice-cream"></i></div>
+            <div class="spec-text">Double Ka Meetha</div>
         </div>
     </div>
 
-    <!-- Quick Actions -->
-    <div class="btn-grid">
-        <!-- Calls -->
-        <a href="tel:+919885984585" class="btn btn-call-1"><i class="fa-solid fa-phone"></i> Call 1</a>
-        <a href="tel:+917285984585" class="btn btn-call-2"><i class="fa-solid fa-phone"></i> Call 2</a>
-        
-        <!-- WhatsApp (Only the specified number) -->
-        <a href="https://wa.me/919885984585" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-        
-        <!-- Google Maps -->
-        <a href="https://www.google.com/maps?cid=18279089975695110433" target="_blank" class="btn btn-map"><i class="fa-solid fa-location-dot"></i> Maps</a>
+    <!-- Smart Action Grid -->
+    <div class="action-grid">
+        <a href="tel:+919885984585" class="action-btn btn-call">
+            <i class="fa-solid fa-phone"></i>
+            <span>Call Desk 1</span>
+        </a>
+        <a href="tel:+917285984585" class="action-btn btn-call">
+            <i class="fa-solid fa-phone"></i>
+            <span>Call Desk 2</span>
+        </a>
+        <a href="https://wa.me/919885984585" target="_blank" class="action-btn btn-wa">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp Us</span>
+        </a>
+        <a href="https://www.google.com/maps?cid=18279089975695110433" target="_blank" class="action-btn btn-map">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Navigate Map</span>
+        </a>
+    </div>
+    
+    <!-- Full Width Insta -->
+    <div class="action-grid" style="grid-template-columns: 1fr; margin-top: -15px;">
+        <a href="https://www.instagram.com/tajdarbar_khammam?utm_source=qr&stkn=dWFqOTI0ZGpqaWU1" target="_blank" class="action-btn btn-insta" style="flex-direction: row; gap: 15px;">
+            <i class="fa-brands fa-instagram"></i>
+            <span>Follow our Instagram</span>
+        </a>
+    </div>
 
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/tajdarbar_khammam?utm_source=qr&stkn=dWFqOTI0ZGpqaWU1" target="_blank" class="btn btn-insta"><i class="fa-brands fa-instagram"></i> Follow on Instagram</a>
-
-        <!-- Auto-Review Generator Button -->
-        <button onclick="generateReview()" class="btn btn-review">
-            <i class="fa-solid fa-star"></i> Tap for 5-Star Magic Review
+    <!-- AI Magic Review Generator -->
+    <div class="magic-btn-wrapper">
+        <button onclick="generateReview()" class="btn-review">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> 
+            Generate 5-Star Magic Review
         </button>
     </div>
 
-    <!-- Footer -->
+    <!-- Premium Footer -->
     <div class="footer">
-        <p>&copy; 2026 Taj Darbar Restaurant. All rights reserved.</p>
+        <div class="copyright">&copy; 2026 Taj Darbar Restaurant.</div>
         
-        <a href="https://catb12345612-ai.github.io/Syed-Zeeshaan-Ali-High-Fledged-Engineering-And-Digital-Tech-Solutions-Site/" target="_blank" class="dev-info">
+        <a href="https://catb12345612-ai.github.io/Syed-Zeeshaan-Ali-High-Fledged-Engineering-And-Digital-Tech-Solutions-Site/" target="_blank" class="dev-badge">
             <!-- REPLACE SRC WITH YOUR DEV LOGO URL -->
-            <img src="dev-logo.png.png" alt="Dev Logo" class="dev-logo">
-            <div class="dev-text">
-                <span>Designed & Engineered by</span>
-                <strong>Syed Zeeshaan Ali @syedzeeshaanali07</strong>
-                <span>High-Fledged Tech Solutions</span>
+            <img src="dev-logo.png.png" alt="Dev Logo" class="dev-logo" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100&auto=format&fit=crop'">
+            <div class="dev-info">
+                <span class="role">Engineered & Designed By</span>
+                <span class="name">Syed Zeeshaan Ali @syedzeeshaanali07</span>
+                <span class="company">High-Fledged Tech Solutions</span>
             </div>
         </a>
     </div>
 
 </div>
 
-<!-- JavaScript Engine -->
+<!-- High-Performance JavaScript -->
 <script>
-    // --- 1. Automatic Image Slider Logic ---
+    // --- 1. Cinematic Slider Logic ---
     const slides = document.querySelectorAll('.slide');
     let currentSlide = 0;
 
@@ -411,42 +535,41 @@
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('active');
     }
-    // Slower, cinematic transition timing (4000ms = 4 seconds)
-    setInterval(nextSlide, 4000);
+    // 4.5 seconds for optimal reading time and visual impact
+    setInterval(nextSlide, 4500);
 
-
-    // --- 2. 100+ Magic Auto-Review Generator Logic ---
+    // --- 2. Advanced 100+ Magic Review Generator ---
     const adjectives = [
-        "Absolutely amazing", "Incredible", "Outstanding", "Delicious", 
-        "Authentic", "The best", "Fantastic", "Superb", "Mouth-watering", "Exceptional"
+        "Absolutely phenomenal", "Incredible", "Outstanding", "Mouth-watering", 
+        "The most authentic", "Top-tier", "Fantastic", "Superb", "Unbeatable", "Exceptional"
     ];
     
     const specialties = [
         "Tandoor Mandi", "Juicy Mandi", "Special Biryani", 
-        "Kaddu Ki Kheer", "Double Ka Meetha", "food and service", 
-        "ambience and taste", "overall dining experience"
+        "Kaddu Ki Kheer", "Double Ka Meetha", "food presentation and service", 
+        "royal ambience and taste", "overall dining experience"
     ];
     
     const conclusions = [
-        "Highly recommended!", "Will definitely come back.", "A must-visit place in Khammam.", 
-        "Loved every bite.", "Great service and quality.", "5 stars all the way!", 
-        "Perfect for family dinners.", "Can't wait to visit again.", "Simply brilliant.", "Exceeded expectations!"
+        "Highly recommended!", "Will definitely be returning.", "A crown jewel in Khammam.", 
+        "Loved every single bite.", "Flawless service and premium quality.", "5 stars effortlessly!", 
+        "Perfect spot for family and friends.", "Can't wait for my next visit.", "Simply masterful.", "Way beyond my expectations!"
     ];
 
     function generateReview() {
-        // Randomly select one phrase from each array
+        // Generate random indices
         const r1 = Math.floor(Math.random() * adjectives.length);
         const r2 = Math.floor(Math.random() * specialties.length);
         const r3 = Math.floor(Math.random() * conclusions.length);
 
-        // Construct the review string
+        // Compile final string
         const reviewText = `${adjectives[r1]} ${specialties[r2]}. ${conclusions[r3]}`;
         const googleReviewURL = "https://search.google.com/local/reviews?placeid=ChIJhyZnvmdZNDoRIfG1cnxfrP0&q=Taj+Darbar+Restaurant&authuser=0&hl=en&gl=IN";
 
-        // Try copying to clipboard automatically
+        // Modern Clipboard API with smooth fallback
         if (navigator.clipboard && window.isSecureContext) {
             navigator.clipboard.writeText(reviewText).then(() => {
-                alert("✨ Magic Review Copied to your Keyboard!\n\n\"" + reviewText + "\"\n\nPress OK to go to Google Maps and Paste it!");
+                alert("✨ AI Magic Review Generated & Copied!\n\n\"" + reviewText + "\"\n\nPress OK to paste it on Google Maps!");
                 window.open(googleReviewURL, '_blank');
             }).catch(err => {
                 fallbackRedirect(googleReviewURL);
@@ -457,7 +580,7 @@
     }
 
     function fallbackRedirect(url) {
-        alert("Redirecting to Google Reviews... Please leave us a 5-star rating!");
+        alert("Redirecting you to Google Reviews... Please drop a 5-star rating for us!");
         window.open(url, '_blank');
     }
 </script>
