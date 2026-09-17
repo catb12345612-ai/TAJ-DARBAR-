@@ -4,74 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taj Darbar Restaurant | Smart Hub</title>
-    <!-- FontAwesome for Icons -->
+    
+    <!-- FontAwesome & Premium Google Fonts (Playfair Display for luxury, Inter for clean tech) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #D4AF37; /* Premium Gold */
-            --bg: #121212;
-            --card-bg: #1e1e1e;
-            --text: #ffffff;
-            --text-muted: #a0a0a0;
+            --gold-light: #F9E596;
+            --gold-primary: #D4AF37;
+            --gold-dark: #997A15;
+            --bg-base: #050505;
+            --surface: rgba(25, 25, 25, 0.6);
+            --surface-border: rgba(212, 175, 55, 0.15);
+            --text-main: #F2F2F2;
+            --text-muted: #888888;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
             text-align: center;
-            padding-bottom: 40px;
+            padding-bottom: 50px;
+            overflow-x: hidden;
+            /* Ambient background glow */
+            background-image: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
         }
 
         .container {
-            max-width: 500px;
+            max-width: 480px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* --- Logo & Header --- */
+        /* --- Elite Header & Logo --- */
         .logo-container {
-            margin: 20px 0;
+            margin: 10px 0 25px 0;
+            position: relative;
+            display: inline-block;
         }
         
         .restaurant-logo {
-            width: 130px;
-            height: 130px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            border: 3px solid var(--primary);
             object-fit: cover;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            padding: 4px;
+            background: var(--bg-base);
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+            transition: transform 0.5s ease;
+        }
+
+        .restaurant-logo:hover {
+            transform: scale(1.05);
         }
 
         h1 {
-            font-size: 28px;
-            margin-bottom: 5px;
-            color: var(--primary);
-            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            margin-bottom: 8px;
+            background: linear-gradient(to right, var(--gold-light), var(--gold-primary), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
         }
 
         .tagline {
             font-size: 14px;
+            font-weight: 300;
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 35px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        /* --- Automatic Image Slider --- */
+        /* --- Premium Cinematic Slider --- */
         .slider-container {
             position: relative;
             width: 100%;
-            height: 250px;
-            border-radius: 12px;
+            height: 280px;
+            border-radius: 20px;
             overflow: hidden;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            border: 1px solid #333;
+            margin-bottom: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            border: 1px solid var(--surface-border);
+        }
+
+        /* Vignette overlay for cinematic look */
+        .slider-container::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+            z-index: 2;
+            pointer-events: none;
         }
 
         .slide {
@@ -79,11 +116,13 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transform: scale(1.05);
+            transition: opacity 1.2s ease-in-out, transform 4s linear;
         }
 
         .slide.active {
             opacity: 1;
+            transform: scale(1);
         }
 
         .slide img {
@@ -92,124 +131,173 @@
             object-fit: cover;
         }
 
-        /* --- Specialities Section --- */
+        .slide-title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 3;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            letter-spacing: 1px;
+        }
+
+        /* --- Glassmorphism Specialities --- */
         .specialities {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px 15px;
-            margin-bottom: 25px;
-            border: 1px solid #333;
+            background: var(--surface);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px 20px;
+            margin-bottom: 35px;
+            border: 1px solid var(--surface-border);
         }
 
         .specialities h3 {
-            margin-bottom: 15px;
-            font-size: 18px;
-            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .badges {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
             justify-content: center;
         }
 
         .badge {
-            background: rgba(212, 175, 55, 0.15);
-            color: var(--primary);
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            border: 1px solid var(--primary);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-main);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 400;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
 
-        /* --- Buttons Grid --- */
+        .badge:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-light);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        /* --- Next-Gen Button Grid --- */
         .btn-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 16px;
+            margin-bottom: 35px;
         }
 
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px;
-            border-radius: 10px;
+            gap: 12px;
+            padding: 16px;
+            border-radius: 14px;
             text-decoration: none;
             color: #fff;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 15px;
-            border: none;
+            border: 1px solid transparent;
             cursor: pointer;
-            transition: transform 0.2s, filter 0.2s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(5px);
         }
 
         .btn:active {
-            transform: scale(0.97);
+            transform: scale(0.96);
         }
 
-        .btn-call-1 { background: #007AFF; }
-        .btn-call-2 { background: #0056b3; }
-        .btn-wa { background: #25D366; }
-        .btn-map { background: #EA4335; }
+        .btn i {
+            font-size: 18px;
+        }
+
+        /* Elegant solid styling for utility buttons */
+        .btn-call-1 { background: rgba(0, 122, 255, 0.15); color: #4DA3FF; border-color: rgba(0, 122, 255, 0.3); }
+        .btn-call-2 { background: rgba(0, 122, 255, 0.15); color: #4DA3FF; border-color: rgba(0, 122, 255, 0.3); }
+        .btn-wa { background: rgba(37, 211, 102, 0.15); color: #25D366; border-color: rgba(37, 211, 102, 0.3); }
+        .btn-map { background: rgba(234, 67, 53, 0.15); color: #FF6B5E; border-color: rgba(234, 67, 53, 0.3); }
         
         .btn-insta { 
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+            background: linear-gradient(45deg, rgba(240, 148, 51, 0.15), rgba(220, 39, 67, 0.15), rgba(188, 24, 136, 0.15));
+            border-color: rgba(220, 39, 67, 0.3);
+            color: #E1306C;
             grid-column: span 2;
         }
 
+        /* AI-Grade Magic Review Button */
         .btn-review {
-            background: linear-gradient(135deg, var(--primary), #b5952f);
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
             color: #000;
             grid-column: span 2;
-            font-size: 18px;
-            padding: 18px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-            animation: pulse 2s infinite;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+            position: relative;
+            overflow: hidden;
+            border: none;
         }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        .btn-review::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-25deg);
+            animation: shine 3s infinite;
         }
 
-        /* --- Developer Footer --- */
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 200%; }
+            100% { left: 200%; }
+        }
+
+        /* --- Minimalist Developer Footer --- */
         .footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
+            margin-top: 20px;
+            padding-top: 30px;
             font-size: 12px;
             color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
         .dev-info {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            margin-top: 15px;
+            gap: 15px;
+            margin-top: 20px;
             text-decoration: none;
-            background: var(--card-bg);
-            padding: 10px 15px;
-            border-radius: 8px;
-            border: 1px solid #444;
-            transition: border-color 0.3s;
+            background: transparent;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
         }
         
-        .dev-info:active {
-            border-color: var(--primary);
+        .dev-info:hover {
+            background: rgba(255,255,255,0.02);
+            border-color: rgba(255,255,255,0.1);
         }
 
         .dev-logo {
-            width: 35px;
-            height: 35px;
-            border-radius: 6px;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
             object-fit: cover;
+            filter: grayscale(20%);
         }
 
         .dev-text {
@@ -217,14 +305,17 @@
         }
 
         .dev-text strong {
-            color: var(--primary);
+            color: var(--text-main);
             display: block;
             font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 2px;
         }
         
         .dev-text span {
-            color: #fff;
+            color: var(--text-muted);
             font-size: 11px;
+            display: block;
         }
     </style>
 </head>
@@ -238,36 +329,30 @@
         <img src="taj.dar.jpeg" alt="Taj Darbar Logo" class="restaurant-logo">
     </div>
     <h1>Taj Darbar</h1>
-    <p class="tagline">Authentic Flavors, Royal Experience in Khammam</p>
+    <p class="tagline">Authentic Flavors &bull; Royal Experience</p>
 
-    <!-- Image Slider (5-10 Mandi/Food Images) -->
+    <!-- Image Slider (Exactly 3 High-End Images: Mandi, Biryani, Shawarma) -->
     <div class="slider-container" id="slider">
-        <!-- Slide 1 -->
+        <!-- Slide 1: Premium Mandi (Meat & Rice) -->
         <div class="slide active">
-            <img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=600&q=80" alt="Mandi 1">
+            <img src="https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=1000&q=80" alt="Special Mandi">
+            <div class="slide-title">Signature Mandi</div>
         </div>
-        <!-- Slide 2 -->
+        <!-- Slide 2: Premium Authentic Biryani -->
         <div class="slide">
-            <img src="https://images.unsplash.com/photo-1589302168068-964664d93cb0?auto=format&fit=crop&w=600&q=80" alt="Biryani 1">
+            <img src="https://images.unsplash.com/photo-1589302168068-964664d93cb0?auto=format&fit=crop&w=1000&q=80" alt="Royal Biryani">
+            <div class="slide-title">Royal Biryani</div>
         </div>
-        <!-- Slide 3 -->
+        <!-- Slide 3: Premium Shawarma -->
         <div class="slide">
-            <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80" alt="Mandi 2">
+            <img src="https://images.unsplash.com/photo-1645696301019-35adcc18fc21?auto=format&fit=crop&w=1000&q=80" alt="Grilled Shawarma">
+            <div class="slide-title">Classic Shawarma</div>
         </div>
-        <!-- Slide 4 -->
-        <div class="slide">
-            <img src="https://images.unsplash.com/photo-1626200926732-261625297127?auto=format&fit=crop&w=600&q=80" alt="Mandi 3">
-        </div>
-        <!-- Slide 5 -->
-        <div class="slide">
-            <img src="https://images.unsplash.com/photo-1544681280-d2dc1cc315eb?auto=format&fit=crop&w=600&q=80" alt="Sweets">
-        </div>
-        <!-- Add more slides here following the same div.slide format up to 10 -->
     </div>
 
     <!-- Our Specialities -->
     <div class="specialities">
-        <h3><i class="fa-solid fa-crown"></i> Our Royal Specialities</h3>
+        <h3>Our Specialities</h3>
         <div class="badges">
             <span class="badge">Tandoor Mandi</span>
             <span class="badge">Juicy Mandi</span>
@@ -300,15 +385,15 @@
 
     <!-- Footer -->
     <div class="footer">
-        <p>&copy; 2026 Taj Darbar Restaurant.</p>
+        <p>&copy; 2026 Taj Darbar Restaurant. All rights reserved.</p>
         
         <a href="https://catb12345612-ai.github.io/Syed-Zeeshaan-Ali-High-Fledged-Engineering-And-Digital-Tech-Solutions-Site/" target="_blank" class="dev-info">
             <!-- REPLACE SRC WITH YOUR DEV LOGO URL -->
             <img src="dev-logo.png.png" alt="Dev Logo" class="dev-logo">
             <div class="dev-text">
-                <span>Developed & Designed by</span>
+                <span>Designed & Engineered by</span>
                 <strong>Syed Zeeshaan Ali @syedzeeshaanali07</strong>
-                <span>High-Fledged Engineering & Digital Tech Solutions</span>
+                <span>High-Fledged Tech Solutions</span>
             </div>
         </a>
     </div>
@@ -326,12 +411,11 @@
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('active');
     }
-    // Slides transition every 3000ms (3 seconds)
-    setInterval(nextSlide, 3000);
+    // Slower, cinematic transition timing (4000ms = 4 seconds)
+    setInterval(nextSlide, 4000);
 
 
     // --- 2. 100+ Magic Auto-Review Generator Logic ---
-    // Combining these arrays dynamically creates over 800 unique, high-quality reviews without lag or heavy file sizes.
     const adjectives = [
         "Absolutely amazing", "Incredible", "Outstanding", "Delicious", 
         "Authentic", "The best", "Fantastic", "Superb", "Mouth-watering", "Exceptional"
@@ -365,11 +449,9 @@
                 alert("✨ Magic Review Copied to your Keyboard!\n\n\"" + reviewText + "\"\n\nPress OK to go to Google Maps and Paste it!");
                 window.open(googleReviewURL, '_blank');
             }).catch(err => {
-                // Fallback if clipboard permission is denied
                 fallbackRedirect(googleReviewURL);
             });
         } else {
-            // Fallback for older browsers
             fallbackRedirect(googleReviewURL);
         }
     }
