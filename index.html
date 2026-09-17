@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taj Darbar Restaurant | Smart Hub</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #D4AF37; /* Premium Gold */
+            --bg: #121212;
+            --card-bg: #1e1e1e;
+            --text: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            text-align: center;
+            padding-bottom: 40px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Logo & Header --- */
+        .logo-container {
+            margin: 20px 0;
+        }
+        
+        .restaurant-logo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* --- Automatic Image Slider --- */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Specialities Section --- */
+        .specialities {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 15px;
+            margin-bottom: 25px;
+            border: 1px solid #333;
+        }
+
+        .specialities h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: var(--primary);
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .badge {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--primary);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid var(--primary);
+        }
+
+        /* --- Buttons Grid --- */
+        .btn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, filter 0.2s;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn-call-1 { background: #007AFF; }
+        .btn-call-2 { background: #0056b3; }
+        .btn-wa { background: #25D366; }
+        .btn-map { background: #EA4335; }
+        
+        .btn-insta { 
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+            grid-column: span 2;
+        }
+
+        .btn-review {
+            background: linear-gradient(135deg, var(--primary), #b5952f);
+            color: #000;
+            grid-column: span 2;
+            font-size: 18px;
+            padding: 18px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        /* --- Developer Footer --- */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .dev-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 15px;
+            text-decoration: none;
+            background: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            transition: border-color 0.3s;
+        }
+        
+        .dev-info:active {
+            border-color: var(--primary);
+        }
+
+        .dev-logo {
+            width: 35px;
+            height: 35px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .dev-text {
+            text-align: left;
+        }
+
+        .dev-text strong {
+            color: var(--primary);
+            display: block;
+            font-size: 13px;
+        }
+        
+        .dev-text span {
+            color: #fff;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Header -->
+    <div class="logo-container">
+        <!-- REPLACE SRC WITH ACTUAL LOGO URL -->
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=300&q=80" alt="Taj Darbar Logo" class="restaurant-logo">
+    </div>
+    <h1>Taj Darbar</h1>
+    <p class="tagline">Authentic Flavors, Royal Experience in Khammam</p>
+
+    <!-- Image Slider (5-10 Mandi/Food Images) -->
+    <div class="slider-container" id="slider">
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=600&q=80" alt="Mandi 1">
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1589302168068-964664d93cb0?auto=format&fit=crop&w=600&q=80" alt="Biryani 1">
+        </div>
+        <!-- Slide 3 -->
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80" alt="Mandi 2">
+        </div>
+        <!-- Slide 4 -->
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1626200926732-261625297127?auto=format&fit=crop&w=600&q=80" alt="Mandi 3">
+        </div>
+        <!-- Slide 5 -->
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1544681280-d2dc1cc315eb?auto=format&fit=crop&w=600&q=80" alt="Sweets">
+        </div>
+        <!-- Add more slides here following the same div.slide format up to 10 -->
+    </div>
+
+    <!-- Our Specialities -->
+    <div class="specialities">
+        <h3><i class="fa-solid fa-crown"></i> Our Royal Specialities</h3>
+        <div class="badges">
+            <span class="badge">Tandoor Mandi</span>
+            <span class="badge">Juicy Mandi</span>
+            <span class="badge">Special Biryani</span>
+            <span class="badge">Kaddu Ki Kheer</span>
+            <span class="badge">Double Ka Meetha</span>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="btn-grid">
+        <!-- Calls -->
+        <a href="tel:+919885984585" class="btn btn-call-1"><i class="fa-solid fa-phone"></i> Call 1</a>
+        <a href="tel:+917285984585" class="btn btn-call-2"><i class="fa-solid fa-phone"></i> Call 2</a>
+        
+        <!-- WhatsApp (Only the specified number) -->
+        <a href="https://wa.me/919885984585" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        
+        <!-- Google Maps -->
+        <a href="https://www.google.com/maps?cid=18279089975695110433" target="_blank" class="btn btn-map"><i class="fa-solid fa-location-dot"></i> Maps</a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/tajdarbar_khammam?utm_source=qr&stkn=dWFqOTI0ZGpqaWU1" target="_blank" class="btn btn-insta"><i class="fa-brands fa-instagram"></i> Follow on Instagram</a>
+
+        <!-- Auto-Review Generator Button -->
+        <button onclick="generateReview()" class="btn btn-review">
+            <i class="fa-solid fa-star"></i> Tap for 5-Star Magic Review
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2026 Taj Darbar Restaurant.</p>
+        
+        <a href="https://catb12345612-ai.github.io/Syed-Zeeshaan-Ali-High-Fledged-Engineering-And-Digital-Tech-Solutions-Site/" target="_blank" class="dev-info">
+            <!-- REPLACE SRC WITH YOUR DEV LOGO URL -->
+            <img src="" alt="Dev Logo" class="dev-logo">
+            <div class="dev-text">
+                <span>Developed & Designed by</span>
+                <strong>Syed Zeeshaan Ali @syedzeeshaanali07</strong>
+                <span>High-Fledged Engineering & Digital Tech Solutions</span>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+<!-- JavaScript Engine -->
+<script>
+    // --- 1. Automatic Image Slider Logic ---
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    // Slides transition every 3000ms (3 seconds)
+    setInterval(nextSlide, 3000);
+
+
+    // --- 2. 100+ Magic Auto-Review Generator Logic ---
+    // Combining these arrays dynamically creates over 800 unique, high-quality reviews without lag or heavy file sizes.
+    const adjectives = [
+        "Absolutely amazing", "Incredible", "Outstanding", "Delicious", 
+        "Authentic", "The best", "Fantastic", "Superb", "Mouth-watering", "Exceptional"
+    ];
+    
+    const specialties = [
+        "Tandoor Mandi", "Juicy Mandi", "Special Biryani", 
+        "Kaddu Ki Kheer", "Double Ka Meetha", "food and service", 
+        "ambience and taste", "overall dining experience"
+    ];
+    
+    const conclusions = [
+        "Highly recommended!", "Will definitely come back.", "A must-visit place in Khammam.", 
+        "Loved every bite.", "Great service and quality.", "5 stars all the way!", 
+        "Perfect for family dinners.", "Can't wait to visit again.", "Simply brilliant.", "Exceeded expectations!"
+    ];
+
+    function generateReview() {
+        // Randomly select one phrase from each array
+        const r1 = Math.floor(Math.random() * adjectives.length);
+        const r2 = Math.floor(Math.random() * specialties.length);
+        const r3 = Math.floor(Math.random() * conclusions.length);
+
+        // Construct the review string
+        const reviewText = `${adjectives[r1]} ${specialties[r2]}. ${conclusions[r3]}`;
+        const googleReviewURL = "https://search.google.com/local/reviews?placeid=ChIJhyZnvmdZNDoRIfG1cnxfrP0&q=Taj+Darbar+Restaurant&authuser=0&hl=en&gl=IN";
+
+        // Try copying to clipboard automatically
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(reviewText).then(() => {
+                alert("✨ Magic Review Copied to your Keyboard!\n\n\"" + reviewText + "\"\n\nPress OK to go to Google Maps and Paste it!");
+                window.open(googleReviewURL, '_blank');
+            }).catch(err => {
+                // Fallback if clipboard permission is denied
+                fallbackRedirect(googleReviewURL);
+            });
+        } else {
+            // Fallback for older browsers
+            fallbackRedirect(googleReviewURL);
+        }
+    }
+
+    function fallbackRedirect(url) {
+        alert("Redirecting to Google Reviews... Please leave us a 5-star rating!");
+        window.open(url, '_blank');
+    }
+</script>
+
+</body>
+</html>
