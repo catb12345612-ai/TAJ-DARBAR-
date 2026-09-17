@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Taj Darbar Restaurant | Smart Hub</title>
     
-    <!-- FontAwesome & Luxury Fonts (Cinzel for Royal feel, Poppins for Tech clean look) -->
+    <!-- FontAwesome & Luxury Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
@@ -122,7 +122,7 @@
             height: 320px;
             border-radius: 24px;
             overflow: hidden;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.9);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -140,7 +140,7 @@
             inset: 0;
             opacity: 0;
             transform: scale(1.1);
-            transition: opacity 1.5s ease, transform 6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: opacity 1.5s ease, transform 12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .slide.active {
@@ -180,83 +180,12 @@
             font-weight: 500;
         }
 
-        /* --- Premium Specialities Grid --- */
-        .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: 20px;
-            color: var(--text-main);
-            text-align: center;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .section-title::before, .section-title::after {
-            content: '';
-            height: 1px;
-            width: 40px;
-            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
-        }
-
-        .specialities-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 40px;
-        }
-
-        /* Full width for the 5th item */
-        .specialities-grid .spec-card:nth-child(5) {
-            grid-column: span 2;
-        }
-
-        .spec-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 16px 12px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .spec-card:hover {
-            border-color: var(--gold-primary);
-            background: rgba(248, 181, 0, 0.08);
-            transform: translateY(-2px);
-        }
-
-        .spec-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            background: rgba(248, 181, 0, 0.15);
-            color: var(--gold-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-
-        .spec-text {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-main);
-            text-align: left;
-            line-height: 1.2;
-        }
-
-        /* --- UPGRADED: Next-Gen Smart Buttons (Contact Grid) --- */
+        /* --- Next-Gen Smart Buttons (Contact Grid Moved Up) --- */
         .action-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 14px;
-            margin-bottom: 25px;
+            margin-bottom: 35px;
         }
 
         .action-btn {
@@ -306,7 +235,77 @@
         .btn-insta { border-top: 1px solid rgba(225, 48, 108, 0.4); background: linear-gradient(180deg, rgba(225, 48, 108, 0.08) 0%, rgba(20, 20, 20, 0.4) 100%); }
         .btn-insta i { color: #E1306C; font-size: 26px; filter: drop-shadow(0 0 8px rgba(225, 48, 108, 0.5)); }
 
-        /* --- UPGRADED: AI Magic Review Button --- */
+        /* --- Premium Specialities Grid --- */
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            color: var(--text-main);
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .section-title::before, .section-title::after {
+            content: '';
+            height: 1px;
+            width: 40px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        }
+
+        .specialities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .specialities-grid .spec-card:nth-child(5) {
+            grid-column: span 2;
+        }
+
+        .spec-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 16px 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .spec-card:hover {
+            border-color: var(--gold-primary);
+            background: rgba(248, 181, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .spec-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(248, 181, 0, 0.15);
+            color: var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .spec-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-main);
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        /* --- AI Magic Review Button --- */
         .magic-btn-wrapper {
             position: relative;
             width: 100%;
@@ -344,7 +343,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Light Sweep Effect */
         .btn-review::after {
             content: '';
             position: absolute;
@@ -361,7 +359,7 @@
             100% { left: 200%; }
         }
 
-        /* --- UPGRADED: Premium Footer --- */
+        /* --- Premium Footer --- */
         .footer {
             text-align: center;
             padding-top: 35px;
@@ -460,34 +458,92 @@
         <div class="tagline">The Royal Culinary Experience</div>
     </div>
 
-    <!-- Cinematic Image Slider (Highly Accurate 4K Images) -->
+    <!-- Cinematic Image Slider (7 Accurate Thaal/Platter Images updating every 10 secs) -->
     <div class="slider-wrapper" id="slider">
-        <!-- Slide 1: Premium Authentic Mandi -->
+        <!-- Slide 1: Traditional Platter Mandi -->
         <div class="slide active">
-            <img src="https://stewwithsaba.com/wp-content/uploads/2023/08/IMG_0744.jpg" alt="Signature Mandi">
+            <img src="https://images.unsplash.com/photo-1626200926732-261625297127?q=80&w=800&auto=format&fit=crop" alt="Signature Platter Mandi">
             <div class="slide-content">
                 <div class="slide-subtitle">Signature Dish</div>
-                <div class="slide-title">Royal Mandi</div>
+                <div class="slide-title">Tandoori Mandi</div>
             </div>
         </div>
-        
-        <!-- Slide 2: Authentic Hyderabadi/Mughlai Biryani -->
+        <!-- Slide 2: Royal Mutton Mandi -->
         <div class="slide">
-            <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=800&q=80" alt="Premium Biryani">
+            <img src="https://stewwithsaba.com/wp-content/uploads/2023/08/IMG_0744.jpg" alt="Mutton Mandi">
             <div class="slide-content">
                 <div class="slide-subtitle">Chef's Special</div>
+                <div class="slide-title">Royal Mutton Mandi</div>
+            </div>
+        </div>
+        <!-- Slide 3: Juicy Chicken Mandi -->
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=800&auto=format&fit=crop" alt="Juicy Mandi">
+            <div class="slide-content">
+                <div class="slide-subtitle">Crowd Favorite</div>
+                <div class="slide-title">Juicy Chicken Mandi</div>
+            </div>
+        </div>
+        <!-- Slide 4: Special Biryani -->
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=800&auto=format&fit=crop" alt="Special Biryani">
+            <div class="slide-content">
+                <div class="slide-subtitle">Authentic Taste</div>
+                <div class="slide-title">Special Biryani</div>
+            </div>
+        </div>
+        <!-- Slide 5: Classic Biryani Platter -->
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1589302168068-964664d93cb0?q=80&w=800&auto=format&fit=crop" alt="Classic Biryani">
+            <div class="slide-content">
+                <div class="slide-subtitle">Traditional</div>
                 <div class="slide-title">Classic Biryani</div>
             </div>
         </div>
-        
-        <!-- Slide 3: High-Quality Shawarma -->
+        <!-- Slide 6: Premium Thaal Presentation -->
         <div class="slide">
-            <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&w=800&q=80" alt="Authentic Shawarma">
+            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?q=80&w=800&auto=format&fit=crop" alt="Premium Mandi">
+            <div class="slide-content">
+                <div class="slide-subtitle">Royal Platter</div>
+                <div class="slide-title">Premium Mandi</div>
+            </div>
+        </div>
+        <!-- Slide 7: High-Quality Shawarma -->
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?q=80&w=800&auto=format&fit=crop" alt="Authentic Shawarma">
             <div class="slide-content">
                 <div class="slide-subtitle">Street Authentic</div>
                 <div class="slide-title">Grilled Shawarma</div>
             </div>
         </div>
+    </div>
+
+    <!-- Contact Grid Moved Up Directly Beneath Slider -->
+    <div class="action-grid">
+        <a href="tel:+919885984585" class="action-btn btn-call">
+            <i class="fa-solid fa-phone"></i>
+            <span>Call Desk 1</span>
+        </a>
+        <a href="tel:+917285984585" class="action-btn btn-call">
+            <i class="fa-solid fa-phone"></i>
+            <span>Call Desk 2</span>
+        </a>
+        <a href="https://wa.me/919885984585" target="_blank" class="action-btn btn-wa">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp Us</span>
+        </a>
+        <a href="https://www.google.com/maps?cid=18279089975695110433" target="_blank" class="action-btn btn-map">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Navigate Map</span>
+        </a>
+    </div>
+    
+    <!-- Full Width Insta Contact -->
+    <div class="action-grid" style="grid-template-columns: 1fr; margin-top: -20px; margin-bottom: 40px;">
+        <a href="https://www.instagram.com/tajdarbar_khammam?utm_source=qr&stkn=dWFqOTI0ZGpqaWU1" target="_blank" class="action-btn btn-insta" style="flex-direction: row; gap: 18px; padding: 18px;">
+            <i class="fa-brands fa-instagram"></i>
+            <span>Follow our Instagram</span>
+        </a>
     </div>
 
     <!-- High-End Specialities Menu -->
@@ -515,34 +571,6 @@
         </div>
     </div>
 
-    <!-- Smart Action Grid -->
-    <div class="action-grid">
-        <a href="tel:+919885984585" class="action-btn btn-call">
-            <i class="fa-solid fa-phone"></i>
-            <span>Call Desk 1</span>
-        </a>
-        <a href="tel:+917285984585" class="action-btn btn-call">
-            <i class="fa-solid fa-phone"></i>
-            <span>Call Desk 2</span>
-        </a>
-        <a href="https://wa.me/919885984585" target="_blank" class="action-btn btn-wa">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>WhatsApp Us</span>
-        </a>
-        <a href="https://www.google.com/maps?cid=18279089975695110433" target="_blank" class="action-btn btn-map">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Navigate Map</span>
-        </a>
-    </div>
-    
-    <!-- Full Width Insta -->
-    <div class="action-grid" style="grid-template-columns: 1fr; margin-top: -10px;">
-        <a href="https://www.instagram.com/tajdarbar_khammam?utm_source=qr&stkn=dWFqOTI0ZGpqaWU1" target="_blank" class="action-btn btn-insta" style="flex-direction: row; gap: 18px; padding: 18px;">
-            <i class="fa-brands fa-instagram"></i>
-            <span>Follow our Instagram</span>
-        </a>
-    </div>
-
     <!-- AI Magic Review Generator -->
     <div class="magic-btn-wrapper">
         <button onclick="generateReview()" class="btn-review">
@@ -556,7 +584,6 @@
         <div class="copyright">&copy; 2026 Taj Darbar Restaurant.</div>
         
         <a href="https://catb12345612-ai.github.io/Syed-Zeeshaan-Ali-High-Fledged-Engineering-And-Digital-Tech-Solutions-Site/" target="_blank" class="dev-badge">
-            <!-- REPLACE SRC WITH YOUR DEV LOGO URL -->
             <img src="dev-logo.png.png" alt="Dev Logo" class="dev-logo" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100&auto=format&fit=crop'">
             <div class="dev-info">
                 <span class="role">Engineered & Designed By</span>
@@ -579,8 +606,8 @@
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('active');
     }
-    // 4.5 seconds for optimal reading time and visual impact
-    setInterval(nextSlide, 4500);
+    // Updated to transition every 10 seconds (10000ms)
+    setInterval(nextSlide, 10000);
 
     // --- 2. Advanced 100+ Magic Review Generator ---
     const adjectives = [
