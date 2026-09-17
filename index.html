@@ -251,12 +251,12 @@
             line-height: 1.2;
         }
 
-        /* --- Next-Gen Smart Buttons --- */
+        /* --- UPGRADED: Next-Gen Smart Buttons (Contact Grid) --- */
         .action-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 14px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .action-btn {
@@ -264,40 +264,61 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            padding: 18px 10px;
-            border-radius: 18px;
+            gap: 10px;
+            padding: 20px 10px;
+            border-radius: 20px;
             text-decoration: none;
-            color: #fff;
+            color: var(--text-main);
             font-weight: 500;
-            font-size: 14px;
-            background: var(--glass-bg);
-            border: 1px solid rgba(255,255,255,0.08);
-            backdrop-filter: blur(10px);
+            font-size: 13px;
+            background: rgba(20, 20, 20, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
         }
 
-        .action-btn:active { transform: scale(0.95); }
+        .action-btn:active { transform: scale(0.96); }
         
-        .action-btn i { font-size: 22px; }
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.08), transparent 70%);
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .action-btn:hover::before { opacity: 1; }
 
-        .btn-call { color: #4DA3FF; border-bottom: 2px solid rgba(77, 163, 255, 0.3); }
-        .btn-wa { color: #25D366; border-bottom: 2px solid rgba(37, 211, 102, 0.3); }
-        .btn-map { color: #FF6B5E; border-bottom: 2px solid rgba(255, 107, 94, 0.3); }
-        .btn-insta { color: #E1306C; border-bottom: 2px solid rgba(225, 48, 108, 0.3); }
+        /* Glowing Elegant Theme per App */
+        .btn-call { border-top: 1px solid rgba(77, 163, 255, 0.4); background: linear-gradient(180deg, rgba(77, 163, 255, 0.08) 0%, rgba(20, 20, 20, 0.4) 100%); }
+        .btn-call i { color: #4DA3FF; font-size: 24px; filter: drop-shadow(0 0 8px rgba(77, 163, 255, 0.5)); }
 
-        /* AI Magic Review Button */
+        .btn-wa { border-top: 1px solid rgba(37, 211, 102, 0.4); background: linear-gradient(180deg, rgba(37, 211, 102, 0.08) 0%, rgba(20, 20, 20, 0.4) 100%); }
+        .btn-wa i { color: #25D366; font-size: 26px; filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.5)); }
+
+        .btn-map { border-top: 1px solid rgba(255, 107, 94, 0.4); background: linear-gradient(180deg, rgba(255, 107, 94, 0.08) 0%, rgba(20, 20, 20, 0.4) 100%); }
+        .btn-map i { color: #FF6B5E; font-size: 24px; filter: drop-shadow(0 0 8px rgba(255, 107, 94, 0.5)); }
+
+        .btn-insta { border-top: 1px solid rgba(225, 48, 108, 0.4); background: linear-gradient(180deg, rgba(225, 48, 108, 0.08) 0%, rgba(20, 20, 20, 0.4) 100%); }
+        .btn-insta i { color: #E1306C; font-size: 26px; filter: drop-shadow(0 0 8px rgba(225, 48, 108, 0.5)); }
+
+        /* --- UPGRADED: AI Magic Review Button --- */
         .magic-btn-wrapper {
             position: relative;
             width: 100%;
-            margin-bottom: 40px;
+            margin-top: 15px;
+            margin-bottom: 45px;
         }
 
         .btn-review {
             width: 100%;
-            background: linear-gradient(135deg, var(--gold-primary), #D4AF37, var(--gold-dark));
-            color: #000;
-            font-size: 17px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-dark));
+            color: #111;
+            font-size: 16px;
             font-weight: 700;
             padding: 22px;
             border-radius: 20px;
@@ -307,15 +328,17 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            box-shadow: 0 10px 30px rgba(248, 181, 0, 0.3);
+            box-shadow: 0 12px 35px rgba(248, 181, 0, 0.35), inset 0 2px 0 rgba(255,255,255,0.4);
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+            letter-spacing: 0.5px;
         }
 
-        .btn-review:active { transform: scale(0.98); box-shadow: 0 5px 15px rgba(248, 181, 0, 0.2); }
+        .btn-review:active { transform: scale(0.97); box-shadow: 0 5px 15px rgba(248, 181, 0, 0.2); }
 
-        .btn-review i { font-size: 20px; animation: starSpin 4s linear infinite; }
+        .btn-review i { font-size: 22px; animation: starSpin 4s linear infinite; }
 
         @keyframes starSpin {
             100% { transform: rotate(360deg); }
@@ -338,42 +361,59 @@
             100% { left: 200%; }
         }
 
-        /* --- Developer Footer --- */
+        /* --- UPGRADED: Premium Footer --- */
         .footer {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 35px;
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
         .copyright {
             font-size: 12px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 25px;
+            letter-spacing: 1px;
         }
 
         .dev-badge {
             display: flex;
             align-items: center;
-            gap: 15px;
-            background: rgba(10, 10, 10, 0.8);
-            border: 1px solid rgba(255,255,255,0.08);
+            gap: 16px;
+            background: linear-gradient(145deg, rgba(30, 30, 30, 0.6), rgba(10, 10, 10, 0.9));
+            border: 1px solid rgba(248, 181, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
             padding: 16px;
-            border-radius: 16px;
+            border-radius: 20px;
             text-decoration: none;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
         }
         
+        .dev-badge::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 15%; width: 70%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            opacity: 0.6;
+        }
+
         .dev-badge:hover {
-            background: rgba(255,255,255,0.03);
-            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            border-color: rgba(248, 181, 0, 0.4);
+            box-shadow: 0 15px 40px rgba(248, 181, 0, 0.25);
         }
 
         .dev-logo {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
             object-fit: cover;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 2px solid rgba(248, 181, 0, 0.5);
+            padding: 2px;
+            background: var(--bg-base);
+            box-shadow: 0 0 15px rgba(248, 181, 0, 0.2);
         }
 
         .dev-info {
@@ -381,11 +421,11 @@
         }
 
         .dev-info .role {
-            font-size: 10px;
+            font-size: 9px;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 3px;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
             display: block;
         }
 
@@ -394,13 +434,15 @@
             font-size: 14px;
             font-weight: 600;
             display: block;
+            letter-spacing: 0.5px;
         }
 
         .dev-info .company {
-            color: var(--gold-light);
+            color: var(--gold-primary);
             font-size: 11px;
             display: block;
-            margin-top: 2px;
+            margin-top: 3px;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -494,8 +536,8 @@
     </div>
     
     <!-- Full Width Insta -->
-    <div class="action-grid" style="grid-template-columns: 1fr; margin-top: -15px;">
-        <a href="https://www.instagram.com/tajdarbar_khammam?utm_source=qr&stkn=dWFqOTI0ZGpqaWU1" target="_blank" class="action-btn btn-insta" style="flex-direction: row; gap: 15px;">
+    <div class="action-grid" style="grid-template-columns: 1fr; margin-top: -10px;">
+        <a href="https://www.instagram.com/tajdarbar_khammam?utm_source=qr&stkn=dWFqOTI0ZGpqaWU1" target="_blank" class="action-btn btn-insta" style="flex-direction: row; gap: 18px; padding: 18px;">
             <i class="fa-brands fa-instagram"></i>
             <span>Follow our Instagram</span>
         </a>
